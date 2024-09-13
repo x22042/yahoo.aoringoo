@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFの挿入と表示</title>
+</head>
+<body>
+    <h1>PDFを挿入して表示する例</h1>
+
+    <!-- ファイル選択 -->
+    <input type="file" id="pdf-upload" accept="application/pdf">
+    <br><br>
+
+    <!-- PDF表示用のiframe -->
+    <iframe id="pdf-display" width="800" height="600"></iframe>
+
+    <script>
+        // PDFアップロードイベント
+        document.getElementById('pdf-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                const fileURL = URL.createObjectURL(file);
+                document.getElementById('pdf-display').src = fileURL;
+            } else {
+                alert('PDFファイルを選択してください。');
+            }
+        });
+    </script>
+
+        
+    <!-- 別のページに飛ぶリンク -->
+    <br>
+    <a href="pdfpage.html">次のページへ</a>
+
+</body>
+</html>
