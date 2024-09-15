@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="first.css">
+</head>
+<body>
+    <h1>一問一答にせえ！</h1>
+    <br>
+
+
+        <!-- ファイル選択 -->
+        <input type="file" id="pdf-upload" accept="application/pdf">
+        <br><br>
+    
+        <!-- 次のページに移動するボタン -->
+        <button id="next-page">次のページへ</button>
+    
+        <script>
+            let pdfFile = null;
+    
+            // ファイルが選択されたときの処理
+            document.getElementById('pdf-upload').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    pdfFile = URL.createObjectURL(file);
+                    sessionStorage.setItem('pdfFile', pdfFile);
+                } else {
+                    alert('PDFファイルを選択してください。');
+                }
+            });
+    
+            // 「次のページへ」ボタンをクリックしたときの処理
+            document.getElementById('next-page').addEventListener('click', function() {
+                if (pdfFile) {
+                    window.location.href = 'pdfpage.html'; // 次のページへ移動
+                } else {
+                    alert('PDFファイルを選択してください。');
+                }
+            });
+        </script>
+    
+</body>
+</html>

@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFの挿入と次のページで表示</title>
+    <title>PDFのアップロードと移動</title>
+    <link rel="stylesheet" href="first.css"> <!-- CSSファイルをリンク -->
 </head>
 <body>
-    <h1>PDFを挿入して次のページで表示</h1>
-
-    <!-- ファイル選択 -->
-    <input type="file" id="pdf-upload" accept="application/pdf">
-    <br><br>
-
-    <!-- 次のページに移動するボタン -->
-    <button id="next-page">次のページへ</button>
+    <div class="container">
+        <h1>PDFを挿入して次のページへ</h1>
+        
+        <!-- ファイル選択 -->
+        <input type="file" id="pdf-upload" accept="application/pdf">
+        <br><br>
+    
+        <!-- 次のページに移動するボタン -->
+        <button id="next-page">次のページへ</button>
+    </div>
 
     <script>
         let pdfFile = null;
@@ -38,6 +41,6 @@
             }
         });
     </script>
-
 </body>
 </html>
+
